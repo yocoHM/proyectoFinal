@@ -62,8 +62,6 @@ ActiveRecord::Schema.define(version: 20150426180140) do
   create_table "pedido_obras", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "obra_id"
-    t.integer  "pedido_id"
   end
 
   create_table "pedidos", force: :cascade do |t|
@@ -76,10 +74,8 @@ ActiveRecord::Schema.define(version: 20150426180140) do
 
   create_table "prod_locs", force: :cascade do |t|
     t.float    "m2"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.integer  "producto_id"
-    t.integer  "localidad_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "productos", force: :cascade do |t|
@@ -91,6 +87,16 @@ ActiveRecord::Schema.define(version: 20150426180140) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.integer  "linea_id"
+  end
+
+  create_table "provedeors", force: :cascade do |t|
+    t.string   "nombre"
+    t.string   "correo"
+    t.string   "direccion"
+    t.string   "pais"
+    t.string   "web"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "proveedors", force: :cascade do |t|
