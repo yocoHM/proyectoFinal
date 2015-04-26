@@ -4,5 +4,8 @@ class Producto < ActiveRecord::Base
 	has_many :prod_locs
 	has_many :localidades, :through => :prod_locs
 	
-
+	#validaciones
+	validates :nombre, presence: true
+	validates :presentacion, presence: true
+	validates :color, presence: true
 end

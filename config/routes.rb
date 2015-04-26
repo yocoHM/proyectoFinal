@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root 'empleados#index'
+  
   resources :proveedors
 
   resources :prod_locs
