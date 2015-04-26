@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Inicio:</strong>
+  <%= @obra.inicio %>
+</p>
+
+<p>
+  <strong>Entrega:</strong>
+  <%= @obra.entrega %>
+</p>
+
+<%= link_to 'Edit', edit_obra_path(@obra) %> |
+<%= link_to 'Back', obras_path %>

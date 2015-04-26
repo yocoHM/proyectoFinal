@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  inicio: 2015-04-26
+  entrega: 2015-04-26
+
+two:
+  inicio: 2015-04-26
+  entrega: 2015-04-26

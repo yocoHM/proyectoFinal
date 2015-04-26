@@ -1,0 +1,2 @@
+module ProdLocsHelper
+end

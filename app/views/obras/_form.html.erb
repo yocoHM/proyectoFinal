@@ -1,0 +1,25 @@
+<%= form_for(@obra) do |f| %>
+  <% if @obra.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@obra.errors.count, "error") %> prohibited this obra from being saved:</h2>
+
+      <ul>
+      <% @obra.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :inicio %><br>
+    <%= f.date_select :inicio %>
+  </div>
+  <div class="field">
+    <%= f.label :entrega %><br>
+    <%= f.date_select :entrega %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
