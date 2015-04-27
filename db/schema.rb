@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150426180140) do
+ActiveRecord::Schema.define(version: 20150427010646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,12 +43,16 @@ ActiveRecord::Schema.define(version: 20150426180140) do
     t.integer  "proveedor_id"
   end
 
+  add_index "lineas", ["proveedor_id"], name: "index_lineas_on_proveedor_id", using: :btree
+
   create_table "localidads", force: :cascade do |t|
     t.string   "direccion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "obra_id"
   end
+
+  add_index "localidads", ["obra_id"], name: "index_localidads_on_obra_id", using: :btree
 
   create_table "obras", force: :cascade do |t|
     t.date     "inicio"
@@ -59,24 +63,40 @@ ActiveRecord::Schema.define(version: 20150426180140) do
     t.integer  "empleado_id"
   end
 
+  add_index "obras", ["cliente_id"], name: "index_obras_on_cliente_id", using: :btree
+  add_index "obras", ["empleado_id"], name: "index_obras_on_empleado_id", using: :btree
+
   create_table "pedido_obras", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "obra_id"
+    t.integer  "pedido_id"
   end
+
+  add_index "pedido_obras", ["obra_id"], name: "index_pedido_obras_on_obra_id", using: :btree
+  add_index "pedido_obras", ["pedido_id"], name: "index_pedido_obras_on_pedido_id", using: :btree
 
   create_table "pedidos", force: :cascade do |t|
     t.float    "m2"
     t.date     "orden"
     t.date     "recibido"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "producto_id"
   end
+
+  add_index "pedidos", ["producto_id"], name: "index_pedidos_on_producto_id", using: :btree
 
   create_table "prod_locs", force: :cascade do |t|
     t.float    "m2"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "producto_id"
+    t.integer  "localidad_id"
   end
+
+  add_index "prod_locs", ["localidad_id"], name: "index_prod_locs_on_localidad_id", using: :btree
+  add_index "prod_locs", ["producto_id"], name: "index_prod_locs_on_producto_id", using: :btree
 
   create_table "productos", force: :cascade do |t|
     t.string   "nombre"
@@ -88,6 +108,8 @@ ActiveRecord::Schema.define(version: 20150426180140) do
     t.datetime "updated_at",       null: false
     t.integer  "linea_id"
   end
+
+  add_index "productos", ["linea_id"], name: "index_productos_on_linea_id", using: :btree
 
   create_table "provedeors", force: :cascade do |t|
     t.string   "nombre"
@@ -109,4 +131,14 @@ ActiveRecord::Schema.define(version: 20150426180140) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "lineas", "proveedors"
+  add_foreign_key "localidads", "obras"
+  add_foreign_key "obras", "clientes"
+  add_foreign_key "obras", "empleados"
+  add_foreign_key "pedido_obras", "obras"
+  add_foreign_key "pedido_obras", "pedidos"
+  add_foreign_key "pedidos", "productos"
+  add_foreign_key "prod_locs", "localidads"
+  add_foreign_key "prod_locs", "productos"
+  add_foreign_key "productos", "lineas"
 end
