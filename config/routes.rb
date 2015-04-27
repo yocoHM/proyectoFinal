@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'empleados#index'
+  root 'homes#home'
   
   resources :proveedors
 
