@@ -4,4 +4,6 @@ class Linea < ActiveRecord::Base
 
 	#validaciones
 	validates :nombre, presence: true
+
+	
 end

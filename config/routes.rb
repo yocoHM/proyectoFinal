@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   root 'homes#home'
+
+  resources :admin
   
   resources :proveedors
 

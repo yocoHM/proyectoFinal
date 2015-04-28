@@ -10,28 +10,35 @@
       </ul>
     </div>
   <% end %>
+<form class="form-signin">
+  <%= f.label :nombre %><br>
+  <input class="form-control" <%= f.text_field :nombre %></input>
+    <div class="field">
 
-  <div class="field">
-    <%= f.label :nombre %><br>
-    <%= f.text_field :nombre %>
   </div>
   <div class="field">
     <%= f.label :rfc %><br>
-    <%= f.text_field :rfc %>
+    <input class="form-control" <%= f.text_field :rfc %></input>
+    
   </div>
   <div class="field">
     <%= f.label :direccion %><br>
-    <%= f.text_field :direccion %>
+     <input class="form-control" <%= f.text_field :direccion %></input>
+    
   </div>
   <div class="field">
     <%= f.label :telefono %><br>
-    <%= f.text_field :telefono %>
+    <input class="form-control" <%= f.text_field :telefono %></input>
+    
   </div>
   <div class="field">
     <%= f.label :seguro_social %><br>
-    <%= f.text_field :seguro_social %>
+    <input class="form-control" <%= f.text_field :seguro_social %></input>
+    
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" <%= f.submit %>Crear Empleado</button>
   </div>
+  </form>
+
 <% end %>

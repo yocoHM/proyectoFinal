@@ -1,10 +1,7 @@
 class ForeignKeys < ActiveRecord::Migration
   def change
 
-  	add_column :prod_locs, :producto_id, :integer
-  	add_column :prod_locs, :localidad_id, :integer
-  	add_column :pedido_obras, :obra_id, :integer
-  	add_column :pedido_obras, :pedido_id, :integer
+  	
 
 add_index :obras, :cliente_id
   	add_index :obras, :empleado_id

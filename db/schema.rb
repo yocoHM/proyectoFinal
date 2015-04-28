@@ -111,16 +111,6 @@ ActiveRecord::Schema.define(version: 20150427010646) do
 
   add_index "productos", ["linea_id"], name: "index_productos_on_linea_id", using: :btree
 
-  create_table "provedeors", force: :cascade do |t|
-    t.string   "nombre"
-    t.string   "correo"
-    t.string   "direccion"
-    t.string   "pais"
-    t.string   "web"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "proveedors", force: :cascade do |t|
     t.string   "nombre"
     t.string   "correo"
