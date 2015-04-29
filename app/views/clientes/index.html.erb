@@ -1,32 +1,20 @@
-  <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Alto Tráfico</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="/empleados/">Empleados</a></li>
-            <li><a href="/pedidos/">Pedidos</a></li>
-            <li><a href="/obras/">Obras</a></li>
-            <li><a href="/productos/">Inventario</a></li>
-            <li><a href="/proveedors/">Proveedor</a></li>
-            <li class="active"><a href="/clientes/">Clientes</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-</header>
+<%= render 'layouts/header_clientes'%>
 <p id="notice"><%= notice %></p>
 
+
+
 <h1>Lista de clientes</h1>
-<table>
+ <div class="col-lg-6">
+<%= form_tag(clientes_path, :method => "get",class: "input-group", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Buscar Clientes" %>
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit">Buscar</button>
+      </span>
+    </div>
+  <% end %>
+  <%= yield %>
+    </div>
+<table class = "table table-striped">
   <thead>
     <tr>
       <th>Nombre</th>
@@ -46,9 +34,17 @@
         <td><%= cliente.direccion %></td>
         <td><%= cliente.telefono %></td>
         <td><%= cliente.contacto %></td>
-        <td><%= link_to 'Show', cliente %></td>
-        <td><%= link_to 'Edit', edit_cliente_path(cliente) %></td>
-        <td><%= link_to 'Destroy', cliente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><div class="btn-group">
+            <button class="btn btn-default btn-ln dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><%= link_to 'Abrir', cliente %></li>
+            <li><%= link_to 'Editar', edit_cliente_path(cliente) %></li>
+            <li><%= link_to 'Borrar', cliente, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+          </ul>
+        </div>
+      </td>
       </tr>
     <% end %>
   </tbody>

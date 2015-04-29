@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Obra:</strong>
+  <%= @pedido_loc.obra_id %>
+</p>
+
+<p>
+  <strong>Pedido:</strong>
+  <%= @pedido_loc.pedido_id %>
+</p>
+
+<%= link_to 'Edit', edit_pedido_loc_path(@pedido_loc) %> |
+<%= link_to 'Back', pedido_locs_path %>

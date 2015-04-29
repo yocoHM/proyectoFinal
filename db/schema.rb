@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150427010646) do
+ActiveRecord::Schema.define(version: 20150428221234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20150427010646) do
     t.string   "seguro_social"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "mail"
+    t.string   "clave"
   end
 
   create_table "lineas", force: :cascade do |t|
@@ -66,15 +68,15 @@ ActiveRecord::Schema.define(version: 20150427010646) do
   add_index "obras", ["cliente_id"], name: "index_obras_on_cliente_id", using: :btree
   add_index "obras", ["empleado_id"], name: "index_obras_on_empleado_id", using: :btree
 
-  create_table "pedido_obras", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "obra_id"
+  create_table "pedido_locs", force: :cascade do |t|
+    t.integer  "localidad_id"
     t.integer  "pedido_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
-  add_index "pedido_obras", ["obra_id"], name: "index_pedido_obras_on_obra_id", using: :btree
-  add_index "pedido_obras", ["pedido_id"], name: "index_pedido_obras_on_pedido_id", using: :btree
+  add_index "pedido_locs", ["localidad_id"], name: "index_pedido_locs_on_localidad_id", using: :btree
+  add_index "pedido_locs", ["pedido_id"], name: "index_pedido_locs_on_pedido_id", using: :btree
 
   create_table "pedidos", force: :cascade do |t|
     t.float    "m2"
@@ -107,6 +109,7 @@ ActiveRecord::Schema.define(version: 20150427010646) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.integer  "linea_id"
+    t.float    "precio"
   end
 
   add_index "productos", ["linea_id"], name: "index_productos_on_linea_id", using: :btree
@@ -125,10 +128,11 @@ ActiveRecord::Schema.define(version: 20150427010646) do
   add_foreign_key "localidads", "obras"
   add_foreign_key "obras", "clientes"
   add_foreign_key "obras", "empleados"
-  add_foreign_key "pedido_obras", "obras"
-  add_foreign_key "pedido_obras", "pedidos"
+  add_foreign_key "pedido_locs", "localidads"
+  add_foreign_key "pedido_locs", "pedidos"
   add_foreign_key "pedidos", "productos"
   add_foreign_key "prod_locs", "localidads"
+  add_foreign_key "prod_locs", "productos"
   add_foreign_key "prod_locs", "productos"
   add_foreign_key "productos", "lineas"
 end

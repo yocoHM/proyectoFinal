@@ -1,0 +1,25 @@
+<%= form_for(@pedido_loc) do |f| %>
+  <% if @pedido_loc.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pedido_loc.errors.count, "error") %> prohibited this pedido_loc from being saved:</h2>
+
+      <ul>
+      <% @pedido_loc.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :obra_id %><br>
+    <%= f.number_field :obra_id %>
+  </div>
+  <div class="field">
+    <%= f.label :pedido_id %><br>
+    <%= f.number_field :pedido_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

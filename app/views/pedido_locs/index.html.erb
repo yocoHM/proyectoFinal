@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Pedido Locs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Obra</th>
+      <th>Pedido</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pedido_locs.each do |pedido_loc| %>
+      <tr>
+        <td><%= pedido_loc.obra_id %></td>
+        <td><%= pedido_loc.pedido_id %></td>
+        <td><%= link_to 'Show', pedido_loc %></td>
+        <td><%= link_to 'Edit', edit_pedido_loc_path(pedido_loc) %></td>
+        <td><%= link_to 'Destroy', pedido_loc, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pedido loc', new_pedido_loc_path %>

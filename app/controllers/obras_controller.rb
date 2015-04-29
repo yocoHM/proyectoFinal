@@ -15,6 +15,7 @@ class ObrasController < ApplicationController
   # GET /obras/new
   def new
     @obra = Obra.new
+    @cliente = Cliente.first
   end
 
   # GET /obras/1/edit
@@ -69,6 +70,6 @@ class ObrasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def obra_params
-      params.require(:obra).permit(:inicio, :entrega)
+      params.require(:obra).permit(:inicio, :entrega, :cliente_id)
     end
 end

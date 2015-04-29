@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :pedido_locs
+
   root 'homes#home'
 
   resources :admin
