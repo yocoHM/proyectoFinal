@@ -1,5 +1,6 @@
 class EmpleadosController < ApplicationController
   before_action :set_empleado, only: [:show, :edit, :update, :destroy]
+  before_action :require_user
 
   # GET /empleados
   # GET /empleados.json
@@ -10,6 +11,12 @@ class EmpleadosController < ApplicationController
   # GET /empleados/1
   # GET /empleados/1.json
   def show
+    
+  end
+
+  def total
+    @empleado = Empleado.select("empleados.nombre, sum(prod_locs.m2 * productos.precio) as Ventas").joins("JOIN obras on empleados.id = obras.empleado_id join localidads on localidads.obra_id = obras.id join prod_locs on prod_locs.localidad_id = localidads.id join productos on productos.id = prod_locs.producto_id").group("empleados.nombre").order("Ventas desc")
+    
   end
 
   # GET /empleados/new

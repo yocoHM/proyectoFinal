@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150428221234) do
+ActiveRecord::Schema.define(version: 20150430171135) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20150428221234) do
     t.string   "contacto"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "email"
   end
 
   create_table "empleados", force: :cascade do |t|
@@ -32,10 +33,11 @@ ActiveRecord::Schema.define(version: 20150428221234) do
     t.string   "direccion"
     t.string   "telefono"
     t.string   "seguro_social"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.string   "mail"
-    t.string   "clave"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "email"
+    t.string   "password_digest"
+    t.boolean  "admin",           default: false
   end
 
   create_table "lineas", force: :cascade do |t|
@@ -132,7 +134,6 @@ ActiveRecord::Schema.define(version: 20150428221234) do
   add_foreign_key "pedido_locs", "pedidos"
   add_foreign_key "pedidos", "productos"
   add_foreign_key "prod_locs", "localidads"
-  add_foreign_key "prod_locs", "productos"
   add_foreign_key "prod_locs", "productos"
   add_foreign_key "productos", "lineas"
 end

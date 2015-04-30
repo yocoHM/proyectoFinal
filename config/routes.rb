@@ -2,10 +2,12 @@ Rails.application.routes.draw do
 
   resources :pedido_locs
 
-  root 'homes#home'
+  root 'logins#new'
+
+  get 'obras/cotiza/:id' => 'obras#cotiza', :as => :cotiza_obra
 
   resources :admin
-  
+
   resources :proveedors
 
   resources :prod_locs
@@ -27,6 +29,14 @@ Rails.application.routes.draw do
   resources :empleados
 
   resources :clientes
+
+  #necesario para el login
+  get '/login/', to: 'logins#new'
+  post '/login/', to: 'logins#create'
+  get '/logout', to: 'logins#destroy'
+
+  get ':not_found' => redirect('/'), :constraints => { :not_found => /.*/ }
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

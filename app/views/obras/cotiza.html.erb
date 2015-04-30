@@ -1,0 +1,37 @@
+<%= render 'layouts/header_obras'%>
+
+
+  <label class="control-label" for="nombre">Nombre:</label>
+  <%= @obra.cliente.nombre %><br>
+  <label class="control-label" for="nombre">RFC:</label>
+<%= @obra.cliente.rfc %><br>
+   <label class="control-label" for="nombre">Dirección:</label>
+<%= @obra.cliente.direccion %><br>
+   <label class="control-label" for="nombre">Teléfono:</label>
+ <%= @obra.cliente.telefono %><br>
+   <label class="control-label" for="nombre">Email:</label>
+<%= @obra.cliente.email %><br>
+
+<label class="control-label" for="nombre">Fecha Inicio:</label>
+<%= @obra.inicio %><br>
+<label class="control-label" for="nombre">Fecha Entrega:</label>
+<%= @obra.entrega %><br>
+
+
+<% @producto.each do |producto| %>
+<td><%= producto.direccion %></td>
+<td><%= producto.nombre %></td>
+<td><%= producto.m2 %></td>
+<td><%= producto.precio %> MXN</td>
+<td><%= producto.m2*producto.precio %></td><br>
+<div id="divCheckbox" style="display: none;"><%= @total += producto.m2*producto.precio  %></div>
+
+
+  
+<% end %>
+
+<%= @total %><br>
+
+
+
+

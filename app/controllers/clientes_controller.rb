@@ -5,7 +5,7 @@ class ClientesController < ApplicationController
   # GET /clientes.json
   def index
      if params[:search]
-      @clientes = Cliente.search(params[:search]).order("rfc ASC")
+      @clientes = Cliente.search(params[:search]).order("created_at ASC")
     else
       @clientes = Cliente.all
     end
