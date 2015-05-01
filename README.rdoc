@@ -1,8 +1,6 @@
 ==README
 
-README EDITADO EN COMPU DE JAVIER
-
-README EDITADO EN COMPU DE JAVIER
+README NORMAL DE NUEVO PARA PROBAR OTRO PUSH
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
