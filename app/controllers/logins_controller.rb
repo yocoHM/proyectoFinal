@@ -12,7 +12,7 @@ class LoginsController < ApplicationController
 		if empleado && empleado.authenticate(params[:password])
 			session[:empleado_id] = empleado.id
 			flash[:success] = "Hola " + empleado.nombre + ", has iniciado sesión"
-			redirect_to empleados_path
+			redirect_to "/empleados/"
 		else
 			flash.now[:danger] = "Tu usuario o contraseña es incorrecto"
 			render 'new'
