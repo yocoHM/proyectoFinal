@@ -11,7 +11,6 @@ class LoginsController < ApplicationController
 
 		if empleado && empleado.authenticate(params[:password])
 			session[:empleado_id] = empleado.id
-			flash[:success] = "Hola " + empleado.nombre + ", has iniciado sesión"
 			if current_user.admin?
 				redirect_to "/empleados/"
 			else 
