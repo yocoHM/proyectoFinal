@@ -1,5 +1,6 @@
 class LineasController < ApplicationController
   before_action :set_linea, only: [:show, :edit, :update, :destroy]
+  #before_action :require_user
 
   # GET /lineas
   # GET /lineas.json
@@ -14,7 +15,7 @@ class LineasController < ApplicationController
 
   # GET /lineas/new
   def new
-    @linea = Linea.new
+      @linea = Linea.new
   end
 
   # GET /lineas/1/edit
@@ -65,10 +66,18 @@ class LineasController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_linea
       @linea = Linea.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        logger.error "Se intento accesar a una linea no valida"
+        redirect_to empleados_url
+        flash[:danger] = "Línea no válida"
+      rescue ActiveRecord::StatementInvalid
+        logger.error "Se intento accesar a un empleado no valido"
+        redirect_to empleados_url
+        flash[:danger] = "Línea no válida"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def linea_params
-      params.require(:linea).permit(:nombre)
+      params.require(:linea).permit(:nombre, :proveedor_id)
     end
 end

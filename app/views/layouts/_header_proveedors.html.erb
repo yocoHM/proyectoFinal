@@ -19,6 +19,8 @@
             <li><a href="/productos/">Inventario</a></li>
             <li class="active"><a href="/proveedors/">Proveedor</a></li>
             <li><a href="/clientes/">Clientes</a></li>
+            <!-- Logout -->
+            <li><%= link_to "Logout", logout_path(current_user) %></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

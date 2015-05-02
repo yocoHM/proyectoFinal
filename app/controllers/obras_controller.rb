@@ -1,5 +1,6 @@
 class ObrasController < ApplicationController
   before_action :set_obra, only: [:show, :edit, :update, :destroy]
+  before_action :require_user
 
   # GET /obras
   # GET /obras.json
@@ -73,6 +74,14 @@ class ObrasController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_obra
       @obra = Obra.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        logger.error "Se intento accesar a una obra no valida"
+        redirect_to obras_url
+        flash[:danger] = "Obra no válida"
+      rescue ActiveRecord::StatementInvalid
+        logger.error "Se intento accesar a una obra no valida"
+        redirect_to obras_url
+        flash[:danger] = "Obra no válida"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

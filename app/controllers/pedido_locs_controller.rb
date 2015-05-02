@@ -1,5 +1,6 @@
 class PedidoLocsController < ApplicationController
   before_action :set_pedido_loc, only: [:show, :edit, :update, :destroy]
+  before_action :require_user
 
   # GET /pedido_locs
   # GET /pedido_locs.json

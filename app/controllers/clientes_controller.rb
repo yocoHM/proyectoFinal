@@ -1,5 +1,6 @@
 class ClientesController < ApplicationController
   before_action :set_cliente, only: [:show, :edit, :update, :destroy]
+  before_action :require_user
 
   # GET /clientes
   # GET /clientes.json
@@ -69,6 +70,14 @@ class ClientesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_cliente
       @cliente = Cliente.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        logger.error "Se intento accesar a un cliente no valido"
+        redirect_to clientes_url
+        flash[:danger] = "Cliente no válido"
+      rescue ActiveRecord::StatementInvalid
+        logger.error "Se intento accesar a un cliente no valido"
+        redirect_to clientes_url
+        flash[:danger] = "Cliente no válido"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

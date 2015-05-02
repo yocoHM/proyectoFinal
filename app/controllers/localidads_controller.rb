@@ -1,5 +1,6 @@
 class LocalidadsController < ApplicationController
   before_action :set_localidad, only: [:show, :edit, :update, :destroy]
+  #before_action :require_user
 
   # GET /localidads
   # GET /localidads.json
@@ -65,6 +66,14 @@ class LocalidadsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_localidad
       @localidad = Localidad.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        logger.error "Se intento accesar a una localidad no valida"
+        redirect_to empleados_url
+        flash[:danger] = "Localidad no válida"
+      rescue ActiveRecord::StatementInvalid
+        logger.error "Se intento accesar a una localidad no valida"
+        redirect_to empleados_url
+        flash[:danger] = "Localidad no válida"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

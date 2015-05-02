@@ -1,5 +1,6 @@
 class PedidosController < ApplicationController
   before_action :set_pedido, only: [:show, :edit, :update, :destroy]
+  before_action :require_user
 
   # GET /pedidos
   # GET /pedidos.json
@@ -65,6 +66,14 @@ class PedidosController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_pedido
       @pedido = Pedido.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        logger.error "Se intento accesar a un pedido no valido"
+        redirect_to pedidos_url
+        flash[:danger] = "Pedido no válido"
+      rescue ActiveRecord::StatementInvalid
+        logger.error "Se intento accesar a un pedido no valido"
+        redirect_to pedidos_url
+        flash[:danger] = "Pedido no válido"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
