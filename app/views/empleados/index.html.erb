@@ -1,32 +1,8 @@
-  <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Alto Tráfico</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="/empleados/">Empleados</a></li>
-            <li><a href="/pedidos/">Pedidos</a></li>
-            <li><a href="/obras/">Obras</a></li>
-            <li><a href="/productos/">Inventario</a></li>
-            <li><a href="/proveedors/">Proveedor</a></li>
-            <li><a href="/clientes/">Clientes</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-</header>
+<%= render 'layouts/header_empleados'%>
 
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Empleados</h1>
+<h1>Lista de Empleados</h1>
 <table class = "table table-striped">
   <thead>
     <tr>
@@ -35,6 +11,7 @@
       <th>Direccion</th>
       <th>Telefono</th>
       <th>Seguro social</th>
+      <th>Email</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -47,6 +24,7 @@
         <td><%= empleado.direccion %></td>
         <td><%= empleado.telefono %></td>
         <td><%= empleado.seguro_social %></td>
+        <td><%= empleado.email %></td>
         <td> <div class="btn-group">
             <button class="btn btn-default btn-ln dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
               <span class="caret"></span>

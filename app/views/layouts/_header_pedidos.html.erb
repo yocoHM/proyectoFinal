@@ -15,9 +15,20 @@
             <li><a href="/empleados/">Empleados</a></li>
             <li class="active"><a href="/pedidos/">Pedidos</a></li>
             <li><a href="/obras/">Obras</a></li>
-            <li><a href="/productos/">Inventario</a></li>
+            <li class = "dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Inventario
+              <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="/lineas/">Lineas</a></li>
+                <li><a href="/productos/">Productos</a></li>
+              </ul></li>
             <li><a href="/proveedors/">Proveedor</a></li>
             <li><a href="/clientes/">Clientes</a></li>
+          </ul>
+          <ul class = "nav navbar-nav navbar-right">
+            <li> <a ><%= current_user.nombre %>, </a></li>
+            <li ><%= link_to "Logout" , logout_path(current_user) %></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

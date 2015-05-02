@@ -1,29 +1,31 @@
+<%= render 'layouts/header_productos'%>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @producto.nombre %>
-</p>
 
-<p>
-  <strong>Presentacion:</strong>
-  <%= @producto.presentacion %>
-</p>
+<p id="notice"><%= notice %></p>
+ <div class="col-lg-6">
+<div class="panel panel-default">
+  <div class="panel-heading clearfix">
+    <h3 class="panel-title pull-left">Producto</h3>
+    <div class="btn-group pull-right">
+            <%= link_to 'Editar', edit_producto_path(@producto), :class => "btn btn-default"%>
+            
+         
+        </div>
+  </div>
+  <div class="panel-body">
+    
+  <label class="control-label" for="nombre">Nombre:</label>
+  <%= @producto.nombre %><br>
+  <label class="control-label" for="nombre">Presentacion:</label>
+<%= @producto.presentacion %><br>
+   <label class="control-label" for="nombre">Especificaciones:</label>
+<%= @producto.especificaciones %><br>
+   <label class="control-label" for="nombre">Color:</label>
+ <%= @producto.color %><br>
+   <label class="control-label" for="nombre">m2:</label>
+<%= @producto.m2 %><br>
 
-<p>
-  <strong>Especificaciones:</strong>
-  <%= @producto.especificaciones %>
-</p>
+  </div>
+</div>
 
-<p>
-  <strong>Color:</strong>
-  <%= @producto.color %>
-</p>
-
-<p>
-  <strong>M2:</strong>
-  <%= @producto.m2 %>
-</p>
-
-<%= link_to 'Edit', edit_producto_path(@producto) %> |
-<%= link_to 'Back', productos_path %>

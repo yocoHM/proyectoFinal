@@ -1,31 +1,30 @@
+<%= render 'layouts/header_empleados'%>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @empleado.nombre %>
-</p>
-
-<p>
-  <strong>Rfc:</strong>
-  <%= @empleado.rfc %>
-</p>
-
-<p>
-  <strong>Direccion:</strong>
-  <%= @empleado.direccion %>
-</p>
-
-<p>
-  <strong>Telefono:</strong>
-  <%= @empleado.telefono %>
-</p>
-
-<p>
-  <strong>Seguro social:</strong>
-  <%= @empleado.seguro_social %>
-</p>
+ <div class="col-lg-6">
+<div class="panel panel-default">
+  <div class="panel-heading clearfix">
+    <h3 class="panel-title pull-left">Empleado</h3>
+    <div class="btn-group pull-right">
+            <%= link_to 'Editar', edit_empleado_path(@empleado), :class => "btn btn-default"%>
+            
+         
+        </div>
+  </div>
+  <div class="panel-body">
+    
+  <label class="control-label" for="nombre">Nombre:</label>
+  <%= @empleado.nombre %><br>
+  <label class="control-label" for="nombre">RFC:</label>
+<%= @empleado.rfc %><br>
+   <label class="control-label" for="nombre">Dirección:</label>
+<%= @empleado.direccion %><br>
+   <label class="control-label" for="nombre">Teléfono:</label>
+ <%= @empleado.telefono %><br>
+ <label class="control-label" for="nombre">Email:</label>
+ <%= @empleado.email %><br>
 
 
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_empleado_path(@empleado) %> |
-<%= link_to 'Back', empleados_path %>

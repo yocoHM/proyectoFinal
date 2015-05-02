@@ -1,8 +1,14 @@
 <%= render 'layouts/header_obras'%>
-
-
+<p id="notice"><%= notice %></p>
+ <div class="col-lg-6">
+<div class="panel panel-default">
+  <div class="panel-heading clearfix">
+    <h3 class="panel-title pull-left">Cliente</h3>
+  </div>
+  <div class="panel-body">
+    
   <label class="control-label" for="nombre">Nombre:</label>
-  <%= @obra.cliente.nombre %><br>
+ <%= @obra.cliente.nombre %><br>
   <label class="control-label" for="nombre">RFC:</label>
 <%= @obra.cliente.rfc %><br>
    <label class="control-label" for="nombre">Dirección:</label>
@@ -12,25 +18,72 @@
    <label class="control-label" for="nombre">Email:</label>
 <%= @obra.cliente.email %><br>
 
-<label class="control-label" for="nombre">Fecha Inicio:</label>
-<%= @obra.inicio %><br>
-<label class="control-label" for="nombre">Fecha Entrega:</label>
+  </div>
+</div>
+
+  <div class="col-lg-6">
+<div class="panel panel-default">
+  <div class="panel-heading clearfix">
+    <h3 class="panel-title pull-left">Obra</h3>
+    
+  </div>
+  <div class="panel-body">
+    
+  <label >Inicio:</label>
+  <%= @obra.inicio %><br>
+  <label >Entrega:</label>
 <%= @obra.entrega %><br>
 
 
+  </div>
+</div>
+
+<div class="col-lg-6">
+<div class="panel panel-default">
+  <div class="panel-heading clearfix">
+    <h3 class="panel-title pull-left">Productos</h3>
+  </div>
+  <div class="panel-body">
+
+<table class = "table table-striped">
+	<thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Direccion</th>
+      <th>m2</th>
+      <th>Precio (MXN)</th>
+      <th>Total</th>
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+<tbody>
 <% @producto.each do |producto| %>
-<td><%= producto.direccion %></td>
 <td><%= producto.nombre %></td>
+<td><%= producto.direccion %></td>
 <td><%= producto.m2 %></td>
 <td><%= producto.precio %> MXN</td>
 <td><%= producto.m2*producto.precio %></td><br>
 <div id="divCheckbox" style="display: none;"><%= @total += producto.m2*producto.precio  %></div>
-
+</tbody>
 
   
 <% end %>
+</table>
+  </div>
+</div>
 
-<%= @total %><br>
+
+<div class="col-lg-6">
+<div class="panel panel-default">
+  <div class="panel-heading clearfix">
+    <h3 class="panel-title pull-left">Total</h3>
+  </div>
+  <div class="panel-body pull-right">
+  	<label class="control-label pull-right" for="nombre">Total:</label>
+<%= @total%> MXN<br>
+  </div>
+</div>
 
 
 
