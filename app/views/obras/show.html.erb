@@ -12,14 +12,18 @@
   </div>
   <div class="panel-body">
     
-  <strong >Inicio:</strong>
+  <strong>Inicio:</strong>
   <%= @obra.inicio %><br>
-  <strong >Entrega:</strong>
-<%= @obra.entrega %><br>
+  <strong>Entrega:</strong>
+  <%= @obra.entrega %><br>
+  <strong>Empleado a cargo:</strong>
+  <%= Empleado.find(@obra.empleado_id).nombre %><br>
 
 
   </div>
 </div>
+
+<%= link_to 'Agregar dirección', new_localidad_path(obra_id: @obra), class: "btn btn-success" %>
 
 <h1>Lista de Localidades</h1>
 <table class = "table table-striped">

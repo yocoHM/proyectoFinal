@@ -72,6 +72,14 @@ class EmpleadosController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_empleado
       @empleado = Empleado.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        logger.error "Se intento accesar a un empleado no valido"
+        redirect_to empleados_url
+        flash[:danger] = "Empleado no válido"
+      rescue ActiveRecord::StatementInvalid
+        logger.error "Se intento accesar a un empleado no valido"
+        redirect_to empleados_url
+        flash[:danger] = "Empleado no válido"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

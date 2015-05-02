@@ -1,5 +1,6 @@
 class ProveedorsController < ApplicationController
   before_action :set_proveedor, only: [:show, :edit, :update, :destroy]
+  before_action :require_user
 
   # GET /proveedors
   # GET /proveedors.json
@@ -65,6 +66,14 @@ class ProveedorsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_proveedor
       @proveedor = Proveedor.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        logger.error "Se intento accesar a un proveedor no valido"
+        redirect_to proveedors_url
+        flash[:danger] = "Proveedor no válido"
+      rescue ActiveRecord::StatementInvalid
+        logger.error "Se intento accesar a un proveedor no valido"
+        redirect_to proveedors_url
+        flash[:danger] = "Proveedor no válido"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

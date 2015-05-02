@@ -1,5 +1,6 @@
 class ProductosController < ApplicationController
   before_action :set_producto, only: [:show, :edit, :update, :destroy]
+  before_action :require_user
 
   # GET /productos
   # GET /productos.json
@@ -14,7 +15,7 @@ class ProductosController < ApplicationController
 
   # GET /productos/new
   def new
-    @producto = Producto.new
+    @producto = Producto.new(linea_id: params[:linea_id])
   end
 
   # GET /productos/1/edit
@@ -65,10 +66,18 @@ class ProductosController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_producto
       @producto = Producto.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        logger.error "Se intento accesar a un producto no valido"
+        redirect_to productos_url
+        flash[:danger] = "Producto no válido"
+      rescue ActiveRecord::StatementInvalid
+        logger.error "Se intento accesar a un producto no valido"
+        redirect_to productos_url
+        flash[:danger] = "Producto no válido"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def producto_params
-      params.require(:producto).permit(:nombre, :presentacion, :especificaciones, :color, :m2)
+      params.require(:producto).permit(:nombre, :presentacion, :especificaciones, :color, :m2, :linea_id)
     end
 end

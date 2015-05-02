@@ -42,7 +42,10 @@
   </tbody>
 
 </table>
-<%= render 'layouts/button_add'%>
+
+<% if current_user.admin? %>
+  <%= render 'layouts/button_add'%>
+<% end %>
 
 <br>
 

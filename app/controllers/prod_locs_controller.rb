@@ -1,5 +1,6 @@
 class ProdLocsController < ApplicationController
   before_action :set_prod_loc, only: [:show, :edit, :update, :destroy]
+  before_action :require_user
 
   # GET /prod_locs
   # GET /prod_locs.json
