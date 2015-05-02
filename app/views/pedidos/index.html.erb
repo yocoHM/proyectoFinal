@@ -1,7 +1,7 @@
 <%= render 'layouts/header_pedidos'%>
 
 <!-- mensajes de error -->
-<%= render 'layouts/messages' %>  
+<%= render 'layouts/messages' %>
 
 <p id="notice"><%= notice %></p>
 
@@ -23,9 +23,9 @@
         <td><%= pedido.m2 %></td>
         <td><%= pedido.orden %></td>
         <td><%= pedido.recibido %></td>
-        <td><%= link_to 'Show', pedido %></td>
-        <td><%= link_to 'Edit', edit_pedido_path(pedido) %></td>
-        <td><%= link_to 'Destroy', pedido, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', pedido %></td>
+        <td><%= link_to 'Editar', edit_pedido_path(pedido) %></td>
+        <td><%= link_to 'Eliminar', pedido, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

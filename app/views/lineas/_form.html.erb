@@ -1,4 +1,4 @@
-<%= form_for(@linea) do |f| %>
+<%= form_for(@linea, html: {class: "form-horizontal"}) do |f| %>
   <% if @linea.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@linea.errors.count, "error") %> prohibited this linea from being saved:</h2>
@@ -13,13 +13,19 @@
 
   <%= f.hidden_field :proveedor_id %>
 
-  <div class="field">
-
-    <%= f.label :nombre %><br>
-    <%= f.text_field :nombre %>
-
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="rfc">Nombre:</label>
+    <div class="col-sm-10">
+      <%= f.text_field :nombre ,id: "nombre",class: "form-control",placeholder: "Introducir Nombre"%>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  
+  <div class="form-group"> 
+    <div class="col-sm-offset-2 col-sm-10">
+      <button class="btn btn-default" type="submit" <%= f.submit %>
+      Aceptar</button>
+    </div>
   </div>
+
+</form>
 <% end %>

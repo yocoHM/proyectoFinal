@@ -2,7 +2,6 @@
 
   <% if @cliente.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
 
       <ul>
       <% @cliente.errors.full_messages.each do |message| %>
@@ -18,34 +17,39 @@
       <%= f.text_field :nombre ,id: "nombre",class: "form-control",placeholder: "Introducir Nombre"%>
     </div>
   </div>
+
   <div class="form-group">
     <label class="control-label col-sm-2" for="rfc">RFC:</label>
     <div class="col-sm-10">
       <%= f.text_field :rfc ,id: "rfc",class: "form-control",placeholder: "Introducir RFC"%>
     </div>
   </div>
+
   <div class="form-group">
-    <label class="control-label col-sm-2" for="direccion">Direccíon:</label>
+    <label class="control-label col-sm-2" for="direccion">Dirección:</label>
     <div class="col-sm-10">
-      <%= f.text_field :direccion ,id: "direccion",class: "form-control",placeholder: "Introducir Direccíon"%>
+      <%= f.text_field :direccion ,id: "direccion",class: "form-control",placeholder: "Introducir Dirección"%>
     </div>
   </div>
+
   <div class="form-group">
     <label class="control-label col-sm-2" for="telefono">Teléfono:</label>
     <div class="col-sm-10">
       <%= f.text_field :telefono ,id: "telefono",class: "form-control",placeholder: "Introducir Teléfono"%>
     </div>
   </div>
+
   <div class="form-group">
     <label class="control-label col-sm-2" for="contacto">Contacto:</label>
     <div class="col-sm-10">
       <%= f.text_field :contacto ,id: "contacto",class: "form-control",placeholder: "Introducir Contacto"%>
     </div>
   </div> 
+
   <div class="form-group"> 
     <div class="col-sm-offset-2 col-sm-10">
-       <%= f.submit :class => "btn btn-default" %>
-      
+       <button class="btn btn-default" type="submit" <%= f.submit %>
+      Aceptar</button>
     </div>
   </div>
 
