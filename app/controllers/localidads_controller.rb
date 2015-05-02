@@ -15,7 +15,7 @@ class LocalidadsController < ApplicationController
 
   # GET /localidads/new
   def new
-    @localidad = Localidad.new
+    @localidad = Localidad.new(obra_id: params[:obra_id])
   end
 
   # GET /localidads/1/edit
@@ -78,6 +78,6 @@ class LocalidadsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def localidad_params
-      params.require(:localidad).permit(:direccion)
+      params.require(:localidad).permit(:direccion, :obra_id)
     end
 end

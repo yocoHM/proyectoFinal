@@ -34,6 +34,9 @@ class ObrasController < ApplicationController
   # POST /obras.json
   def create
     @obra = Obra.new(obra_params)
+    @obra.empleado_id = session[:empleado_id]
+
+    binding.pry
 
     respond_to do |format|
       if @obra.save

@@ -6,7 +6,9 @@
   <div class="panel-heading clearfix">
     <h3 class="panel-title pull-left">Linea</h3>
     <div class="btn-group pull-right">
+          <% if current_user.admin? %>
             <%= link_to 'Editar', edit_linea_path(@linea), :class => "btn btn-default"%>
+          <% end %>
         </div>
   </div>
   <div class="panel-body">
@@ -16,8 +18,9 @@
 </p>
 </div>
 </div>
-
-<%= link_to 'Agregar producto', new_producto_path(linea_id: @linea), class: "btn btn-success" %>
+<% if current_user.admin? %>
+  <%= link_to 'Agregar producto', new_producto_path(linea_id: @linea), class: "btn btn-success" %>
+<% end %>
 
 <h1>Listing Productos</h1>
 
