@@ -15,7 +15,7 @@ class LineasController < ApplicationController
 
   # GET /lineas/new
   def new
-      @linea = Linea.new
+      @linea = Linea.new(proveedor_id: params[:proveedor_id])
   end
 
   # GET /lineas/1/edit
