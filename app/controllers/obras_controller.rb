@@ -17,7 +17,7 @@ class ObrasController < ApplicationController
   def cotiza
     @obra = Obra.find(params[:id])
     @total = 0
-    @producto = Obra.select("productos.nombre, localidads.direccion, prod_locs.m2, productos.precio").joins("JOIN localidads ON localidads.obra_id = obras.id JOIN prod_locs ON localidads.id = prod_locs.localidad_id JOIN productos ON prod_locs.producto_id = productos.id")
+    @producto = Obra.select("productos.nombre, localidads.direccion, prod_locs.m2, productos.precio").joins("JOIN localidads ON localidads.obra_id = obras.id JOIN prod_locs ON localidads.id = prod_locs.localidad_id JOIN productos ON prod_locs.producto_id = productos.id").where("obras.id = ?", params[:id])
   end
 
   # GET /obras/new
