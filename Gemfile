@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 #Gema para encriptar contraseñas
 gem 'bcrypt', '3.1.7' 
+#Gema para hacer PDF's
+gem "prawnto_2", :require => "prawnto"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record
