@@ -29,7 +29,7 @@ class ProductosController < ApplicationController
 
     respond_to do |format|
       if @producto.save
-        format.html { redirect_to @producto, notice: 'Producto was successfully created.' }
+        format.html { redirect_to @producto, notice: 'El producto fue creado satisfactoriamente.' }
         format.json { render :show, status: :created, location: @producto }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class ProductosController < ApplicationController
   def update
     respond_to do |format|
       if @producto.update(producto_params)
-        format.html { redirect_to @producto, notice: 'Producto was successfully updated.' }
+        format.html { redirect_to @producto, notice: 'El producto fue actualizado satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @producto }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class ProductosController < ApplicationController
   def destroy
     @producto.destroy
     respond_to do |format|
-      format.html { redirect_to productos_url, notice: 'Producto was successfully destroyed.' }
+      format.html { redirect_to productos_url, notice: 'El producto fue eliminado satisfactoriamente.' }
       format.json { head :no_content }
     end
   end
@@ -78,6 +78,6 @@ class ProductosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def producto_params
-      params.require(:producto).permit(:nombre, :presentacion, :especificaciones, :color, :m2, :linea_id)
+      params.require(:producto).permit(:nombre, :presentacion, :especificaciones, :color, :m2, :precio, :linea_id)
     end
 end

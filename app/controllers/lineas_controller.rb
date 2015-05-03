@@ -29,7 +29,7 @@ class LineasController < ApplicationController
 
     respond_to do |format|
       if @linea.save
-        format.html { redirect_to @linea, notice: 'Linea was successfully created.' }
+        format.html { redirect_to @linea, notice: 'La línea fue creada satisfactoriamente.' }
         format.json { render :show, status: :created, location: @linea }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class LineasController < ApplicationController
   def update
     respond_to do |format|
       if @linea.update(linea_params)
-        format.html { redirect_to @linea, notice: 'Linea was successfully updated.' }
+        format.html { redirect_to @linea, notice: 'La línea fue actualizada satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @linea }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class LineasController < ApplicationController
   def destroy
     @linea.destroy
     respond_to do |format|
-      format.html { redirect_to lineas_url, notice: 'Linea was successfully destroyed.' }
+      format.html { redirect_to lineas_url, notice: 'La línea fue eliminada satisfactoriamente.' }
       format.json { head :no_content }
     end
   end

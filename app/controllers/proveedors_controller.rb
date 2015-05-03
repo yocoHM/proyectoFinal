@@ -29,7 +29,7 @@ class ProveedorsController < ApplicationController
 
     respond_to do |format|
       if @proveedor.save
-        format.html { redirect_to @proveedor, notice: 'Proveedor was successfully created.' }
+        format.html { redirect_to @proveedor, notice: 'El proveedor fue creado satisfactoriamente.' }
         format.json { render :show, status: :created, location: @proveedor }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class ProveedorsController < ApplicationController
   def update
     respond_to do |format|
       if @proveedor.update(proveedor_params)
-        format.html { redirect_to @proveedor, notice: 'Proveedor was successfully updated.' }
+        format.html { redirect_to @proveedor, notice: 'El proveedor fue actualizado satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @proveedor }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class ProveedorsController < ApplicationController
   def destroy
     @proveedor.destroy
     respond_to do |format|
-      format.html { redirect_to proveedors_url, notice: 'Proveedor was successfully destroyed.' }
+      format.html { redirect_to proveedors_url, notice: 'El proveedor fue eliminado satisfactoriamente.' }
       format.json { head :no_content }
     end
   end
@@ -78,6 +78,6 @@ class ProveedorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def proveedor_params
-      params.require(:proveedor).permit(:nombre, :correo, :direccion, :pais, :web)
+      params.require(:proveedor).permit(:nombre, :correo, :direccion, :pais, :web, :telefono)
     end
 end

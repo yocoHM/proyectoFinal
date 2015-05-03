@@ -1,8 +1,5 @@
 <%= render 'layouts/header_proveedors'%> 
 
-<!-- mensajes de error -->
-<%= render 'layouts/messages' %> 
-
 <p id="notice"><%= notice %></p>
 
 <h1>Lista de Proveedores</h1>
@@ -11,10 +8,11 @@
   <thead>
     <tr>
       <th>Nombre</th>
-      <th>Correo</th>
-      <th>Direccion</th>
+      <th>Email</th>
+      <th>Dirección</th>
       <th>Pais</th>
       <th>Web</th>
+      <th>Teléfono</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -27,6 +25,7 @@
         <td><%= proveedor.direccion %></td>
         <td><%= proveedor.pais %></td>
         <td><%= proveedor.web %></td>
+        <td><%= proveedor.telefono %></td>
         <td><div class="btn-group">
             <button class="btn btn-default btn-ln dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
               <span class="caret"></span>
