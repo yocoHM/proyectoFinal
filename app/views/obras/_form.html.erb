@@ -21,12 +21,12 @@
     <%= f.label :entrega %><br>
     <%= f.date_select :entrega %>
   </div>
-   <div class="field">
+
+  <div class="field">
     <%= f.label :Cliente %><br>
     <%= f.collection_select(:cliente_id, Cliente.all, :id, :nombre) %>
-
-    
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

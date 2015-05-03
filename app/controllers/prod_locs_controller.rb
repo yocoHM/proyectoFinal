@@ -15,7 +15,7 @@ class ProdLocsController < ApplicationController
 
   # GET /prod_locs/new
   def new
-    @prod_loc = ProdLoc.new
+    @prod_loc = ProdLoc.new(localidad_id: params[:localidad_id])
   end
 
   # GET /prod_locs/1/edit
@@ -29,7 +29,7 @@ class ProdLocsController < ApplicationController
 
     respond_to do |format|
       if @prod_loc.save
-        format.html { redirect_to @prod_loc, notice: 'Prod loc was successfully created.' }
+        format.html { redirect_to localidad_path(@prod_loc.localidad_id), notice: 'Se agregó el producto satisfactoriamente.' }
         format.json { render :show, status: :created, location: @prod_loc }
       else
         format.html { render :new }
@@ -70,6 +70,6 @@ class ProdLocsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def prod_loc_params
-      params.require(:prod_loc).permit(:m2)
+      params.require(:prod_loc).permit(:m2, :localidad_id, :producto_id)
     end
 end
