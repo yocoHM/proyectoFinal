@@ -1,6 +1,6 @@
 class LineasController < ApplicationController
   before_action :set_linea, only: [:show, :edit, :update, :destroy]
-  #before_action :require_user
+  before_action :require_user
 
   # GET /lineas
   # GET /lineas.json

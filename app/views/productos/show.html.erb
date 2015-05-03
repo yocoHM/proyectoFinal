@@ -8,8 +8,9 @@
   <div class="panel-heading clearfix">
     <h3 class="panel-title pull-left">Producto</h3>
     <div class="btn-group pull-right">
-            <%= link_to 'Editar', edit_producto_path(@producto), :class => "btn btn-default"%>
-            
+            <% if current_user.admin? %>
+              <%= link_to 'Editar', edit_producto_path(@producto), :class => "btn btn-default"%>
+            <% end %>
          
         </div>
   </div>

@@ -5,7 +5,9 @@
   <div class="panel-heading clearfix">
     <h3 class="panel-title pull-left">Proveedor</h3>
     <div class="btn-group pull-right">
-      <%= link_to 'Editar', edit_proveedor_path(@proveedor), :class => "btn btn-default"%>
+      <% if current_user.admin? %>
+        <%= link_to 'Editar', edit_proveedor_path(@proveedor), :class => "btn btn-default"%>
+      <% end %>
     </div>
   </div>
   <div class="panel-body">
@@ -75,4 +77,6 @@
     <% end %>
   </tbody>
 </table>
+
+<%= link_to 'Regresar', "/proveedors/" %>
 

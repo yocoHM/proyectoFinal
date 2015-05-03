@@ -1,4 +1,4 @@
-<%= render 'layouts/header_productos'%>
+<%= render 'layouts/header_proveedors'%>
 <p id="notice"><%= notice %></p>
 
  <div class="col-lg-6">
@@ -44,16 +44,18 @@
         <td><%= productos.presentacion %></td>
         <td><%= productos.especificaciones %></td>
         <td><%= productos.color %></td>
-        <td><%= productos.precio %></td>
         <td><%= productos.m2 %></td>
+        <td><%= productos.precio %></td>
         <td><div class="btn-group">
             <button class="btn btn-default btn-ln dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu">
             <li><%= link_to 'Abrir', productos %></li>
-            <li><%= link_to 'Editar', edit_producto_path(productos) %></li>
-            <li><%= link_to 'Borrar', productos, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+            <% if current_user.admin? %>
+              <li><%= link_to 'Editar', edit_producto_path(productos) %></li>
+              <li><%= link_to 'Borrar', productos, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+            <% end %>
           </ul>
         </div></td>
       </tr>
@@ -61,6 +63,6 @@
       </tbody>
 </table>
 
-
+<%= link_to 'Regresar', "/proveedors/" %>
 
 
