@@ -22,8 +22,7 @@ class ObrasController < ApplicationController
 
   # GET /obras/new
   def new
-    @obra = Obra.new
-    @cliente = Cliente.first
+    @obra = Obra.new(cliente_id: params[:cliente_id])
   end
 
   # GET /obras/1/edit
@@ -35,8 +34,6 @@ class ObrasController < ApplicationController
   def create
     @obra = Obra.new(obra_params)
     @obra.empleado_id = session[:empleado_id]
-
-    binding.pry
 
     respond_to do |format|
       if @obra.save
