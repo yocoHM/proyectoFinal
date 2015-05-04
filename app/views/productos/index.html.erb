@@ -34,7 +34,6 @@
               <li><%= link_to 'Abrir', producto %></li>
               <% if current_user.admin? %>
                 <li><%= link_to 'Editar', edit_producto_path(producto) %></li>
-                <li><%= link_to 'Borrar', producto, method: :delete, data: { confirm: 'Are you sure?' } %></li>
               <% end %>
             </ul>
         </div></td>

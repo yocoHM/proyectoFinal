@@ -34,7 +34,6 @@
               <li><%= link_to 'Abrir', proveedor %></li>
               <% if current_user.admin? %>
                 <li><%= link_to 'Editar', edit_proveedor_path(proveedor) %></li>
-                <li><%= link_to 'Borrar', proveedor, method: :delete, data: { confirm: 'Are you sure?' } %></li>
               <% end %>
             </ul>
         </div>

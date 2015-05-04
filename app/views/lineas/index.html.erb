@@ -24,7 +24,6 @@
             <li><%= link_to 'Abrir', linea %></li>
             <% if current_user.admin? %>
               <li><%= link_to 'Editar', edit_linea_path(linea) %></li>
-              <li><%= link_to 'Borrar', linea, method: :delete, data: { confirm: 'Are you sure?' } %></li>
             <% end %>
           </ul>
         </div></td>
