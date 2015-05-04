@@ -71,24 +71,14 @@ ActiveRecord::Schema.define(version: 20150503133552) do
   add_index "obras", ["empleado_id"], name: "index_obras_on_empleado_id", using: :btree
 
   create_table "pedido_locs", force: :cascade do |t|
+    t.integer  "localidad_id"
     t.integer  "pedido_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.integer  "localidad_id"
   end
 
   add_index "pedido_locs", ["localidad_id"], name: "index_pedido_locs_on_localidad_id", using: :btree
   add_index "pedido_locs", ["pedido_id"], name: "index_pedido_locs_on_pedido_id", using: :btree
-
-  create_table "pedido_obras", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "obra_id"
-    t.integer  "pedido_id"
-  end
-
-  add_index "pedido_obras", ["obra_id"], name: "index_pedido_obras_on_obra_id", using: :btree
-  add_index "pedido_obras", ["pedido_id"], name: "index_pedido_obras_on_pedido_id", using: :btree
 
   create_table "pedidos", force: :cascade do |t|
     t.float    "m2"
@@ -126,16 +116,6 @@ ActiveRecord::Schema.define(version: 20150503133552) do
 
   add_index "productos", ["linea_id"], name: "index_productos_on_linea_id", using: :btree
 
-  create_table "provedeors", force: :cascade do |t|
-    t.string   "nombre"
-    t.string   "correo"
-    t.string   "direccion"
-    t.string   "pais"
-    t.string   "web"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "proveedors", force: :cascade do |t|
     t.string   "nombre"
     t.string   "correo"
@@ -153,11 +133,8 @@ ActiveRecord::Schema.define(version: 20150503133552) do
   add_foreign_key "obras", "empleados"
   add_foreign_key "pedido_locs", "localidads"
   add_foreign_key "pedido_locs", "pedidos"
-  add_foreign_key "pedido_obras", "obras"
-  add_foreign_key "pedido_obras", "pedidos"
   add_foreign_key "pedidos", "productos"
   add_foreign_key "prod_locs", "localidads"
-  add_foreign_key "prod_locs", "productos"
   add_foreign_key "prod_locs", "productos"
   add_foreign_key "productos", "lineas"
 end

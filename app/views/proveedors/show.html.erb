@@ -38,13 +38,15 @@
     </p>
   </div>
 </div>
-<% if current_user.admin? %>
-  <%= link_to 'Agregar línea', new_linea_path(proveedor_id: @proveedor), class: "btn btn-success" %>
-<% end %>
+
 
 <table class = "table table-striped">
 
-  <h1>Lista de Lineas</h1>
+  <h1>Lista de Lineas <% if current_user.admin? %>
+  <%= link_to new_linea_path(proveedor_id: @proveedor), class: "btn btn-success btn-circle btn-lg" do %>
+  <i class="glyphicon glyphicon-plus" style="color:white"></i>
+  <% end %> 
+<% end %></h1>
   <thead>
     <tr>
       <th>Nombre</th>
@@ -78,5 +80,5 @@
   </tbody>
 </table>
 
-<%= link_to 'Regresar', "/proveedors/" %>
+
 
