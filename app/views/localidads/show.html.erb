@@ -18,11 +18,10 @@
 
 
 
-<h1>Lista de Productos <% if current_user.admin? %>
+<h1>Lista de Productos
   <%= link_to new_prod_loc_path(localidad_id: @localidad), class: "btn btn-success btn-circle btn-lg" do %>
   <i class="glyphicon glyphicon-plus" style="color:white"></i>
-  <% end %> 
-<% end %></h1>
+  <% end %> </h1>
 
 <table class = "table table-striped">
   <thead>
