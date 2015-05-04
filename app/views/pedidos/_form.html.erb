@@ -1,7 +1,6 @@
 <%= form_for(@pedido, html: {class: "form-horizontal"}) do |f| %>
   <% if @pedido.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@pedido.errors.count, "error") %> prohibited this pedido from being saved:</h2>
 
       <ul>
       <% @pedido.errors.full_messages.each do |message| %>

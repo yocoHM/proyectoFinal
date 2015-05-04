@@ -1,7 +1,6 @@
 <%= form_for(@linea, html: {class: "form-horizontal"}) do |f| %>
   <% if @linea.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@linea.errors.count, "error") %> prohibited this linea from being saved:</h2>
 
       <ul>
       <% @linea.errors.full_messages.each do |message| %>

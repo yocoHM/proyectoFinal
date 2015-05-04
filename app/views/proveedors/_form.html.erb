@@ -1,7 +1,6 @@
 <%= form_for(@proveedor, html: {class: "form-horizontal"}) do |f| %>
   <% if @proveedor.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@proveedor.errors.count, "error") %> prohibited this proveedor from being saved:</h2>
 
       <ul>
       <% @proveedor.errors.full_messages.each do |message| %>

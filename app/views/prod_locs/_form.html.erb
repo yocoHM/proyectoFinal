@@ -1,7 +1,6 @@
 <%= form_for(@prod_loc, html: {class: "form-horizontal"}) do |f| %>
   <% if @prod_loc.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@prod_loc.errors.count, "error") %> prohibited this prod_loc from being saved:</h2>
 
       <ul>
       <% @prod_loc.errors.full_messages.each do |message| %>

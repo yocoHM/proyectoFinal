@@ -1,7 +1,6 @@
 <%= form_for(@localidad, html: {class: "form-horizontal"}) do |f| %>
   <% if @localidad.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@localidad.errors.count, "error") %> prohibited this localidad from being saved:</h2>
 
       <ul>
       <% @localidad.errors.full_messages.each do |message| %>

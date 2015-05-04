@@ -1,7 +1,6 @@
 <%= form_for(@obra, html: {class: "form-horizontal"}) do |f| %>
   <% if @obra.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@obra.errors.count, "error") %> prohibited this obra from being saved:</h2>
 
       <ul>
       <% @obra.errors.full_messages.each do |message| %>
