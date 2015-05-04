@@ -1,19 +1,25 @@
 <%= render 'layouts/header_pedidos'%>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>M2:</strong>
-  <%= @pedido.m2 %>
-</p>
-
-<p>
-  <strong>Orden:</strong>
-  <%= @pedido.orden %>
-</p>
-
-<p>
-  <strong>Recibido:</strong>
-  <%= @pedido.recibido %>
-</p>
+<div class="col-lg-6">
+<div class="panel panel-default">
+  <div class="panel-heading clearfix">
+    <h3 class="panel-title pull-left">Pedido</h3>
+    <div class="btn-group pull-right">
+            <%= link_to 'Editar', edit_pedido_path(@pedido), :class => "btn btn-default"%>
+            
+         
+        </div>
+  </div>
+  <div class="panel-body">
+    
+  <label class="control-label" for="nombre">Metros cuadrados:</label>
+  <%= @pedido.m2 %><br>
+  <label class="control-label" for="nombre">Fecha de orden:</label>
+<%= @pedido.orden %><br>
+   <label class="control-label" for="nombre">Fecha de recibido:</label>
+<%= @pedido.recibido %><br>
+  </div>
+</div>
 
 <%= link_to 'Regresar', "/pedidos/" %>
