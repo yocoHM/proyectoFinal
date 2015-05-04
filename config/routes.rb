@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root 'logins#new'
 
   get 'obras/cotiza/:id' => 'obras#cotiza', :as => :cotiza_obra
+  get 'empleados/total/' => 'empleados#total', :as => :empleado_total
 
   resources :admin
 

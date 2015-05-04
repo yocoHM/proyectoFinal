@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'chartkick', '~> 1.2.4'
+gem 'groupdate', '~> 2.1.1'
+gem 'active_median', '~> 0.1.0'
 #Gema para encriptar contraseñas
 gem 'bcrypt', '3.1.7' 
 #Gema para hacer PDF's
