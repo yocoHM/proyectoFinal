@@ -19,11 +19,13 @@
 </div>
 </div>
 
-<% if current_user.admin? %>
-  <%= link_to 'Agregar producto', new_producto_path(linea_id: @linea), class: "btn btn-success" %>
-<% end %>
 
-<h1>Lista de Productos</h1>
+
+<h1>Lista de Productos <% if current_user.admin? %>
+  <%= link_to new_producto_path(linea_id: @linea), class: "btn btn-success btn-circle btn-lg" do %>
+  <i class="glyphicon glyphicon-plus" style="color:white"></i>
+  <% end %> 
+<% end %></h1>
 
 <table class = "table table-striped">
   <thead>
@@ -63,6 +65,5 @@
       </tbody>
 </table>
 
-<%= link_to 'Regresar', "/proveedors/" %>
 
 

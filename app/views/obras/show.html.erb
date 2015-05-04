@@ -23,9 +23,11 @@
   </div>
 </div>
 
-<%= link_to 'Agregar localidad', new_localidad_path(obra_id: @obra), class: "btn btn-success" %>
 
-<h1>Lista de Localidades</h1>
+
+<h1>Lista de Localidades <%= link_to new_localidad_path(obra_id: @obra), class: "btn btn-success btn-circle btn-lg" do %>
+  <i class="glyphicon glyphicon-plus" style="color:white"></i>
+  <% end %> </h1>
 <table class = "table table-striped">
 	<thead>
     <tr>
