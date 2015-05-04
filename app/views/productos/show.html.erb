@@ -9,7 +9,7 @@
     <h3 class="panel-title pull-left">Producto</h3>
     <div class="btn-group pull-right">
             <% if current_user.admin? %>
-              <%= link_to 'Editar', edit_producto_path(@producto), :class => "btn btn-default"%>
+              <%= link_to 'Editar', edit_producto_path(@producto), :class => "btn btn-warning", :style=>'color:#FFFFFF;'%>
             <% end %>
          
         </div>

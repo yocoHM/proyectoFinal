@@ -6,7 +6,7 @@
     <h3 class="panel-title pull-left">Proveedor</h3>
     <div class="btn-group pull-right">
       <% if current_user.admin? %>
-        <%= link_to 'Editar', edit_proveedor_path(@proveedor), :class => "btn btn-default"%>
+        <%= link_to 'Editar', edit_proveedor_path(@proveedor), :class => "btn btn-warning", :style=>'color:#FFFFFF;'%>
       <% end %>
     </div>
   </div>
