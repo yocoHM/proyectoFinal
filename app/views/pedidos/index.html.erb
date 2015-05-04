@@ -7,6 +7,7 @@
 <table class = "table table-striped">
   <thead>
     <tr>
+      <th>Producto</th>
       <th>M2</th>
       <th>Orden</th>
       <th>Recibido</th>
@@ -17,10 +18,10 @@
   <tbody>
     <% @pedidos.each do |pedido| %>
       <tr>
+        <td><%= Producto.find(pedido.producto_id).nombre %></td>
         <td><%= pedido.m2 %></td>
         <td><%= pedido.orden %></td>
         <td><%= pedido.recibido %></td>
-
         <td>
           <div class="btn-group">
             <button class="btn btn-default btn-ln dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">

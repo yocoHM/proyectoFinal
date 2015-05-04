@@ -80,16 +80,6 @@ ActiveRecord::Schema.define(version: 20150503133552) do
   add_index "pedido_locs", ["localidad_id"], name: "index_pedido_locs_on_localidad_id", using: :btree
   add_index "pedido_locs", ["pedido_id"], name: "index_pedido_locs_on_pedido_id", using: :btree
 
-  create_table "pedido_obras", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "obra_id"
-    t.integer  "pedido_id"
-  end
-
-  add_index "pedido_obras", ["obra_id"], name: "index_pedido_obras_on_obra_id", using: :btree
-  add_index "pedido_obras", ["pedido_id"], name: "index_pedido_obras_on_pedido_id", using: :btree
-
   create_table "pedidos", force: :cascade do |t|
     t.float    "m2"
     t.date     "orden"
