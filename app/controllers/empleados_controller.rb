@@ -6,6 +6,7 @@ class EmpleadosController < ApplicationController
   # GET /empleados.json
   def index
     @empleados = Empleado.all
+
   end
 
   # GET /empleados/1
@@ -14,8 +15,18 @@ class EmpleadosController < ApplicationController
     
   end
 
+
+
   def total
-    @empleado = Empleado.select("empleados.nombre, sum(prod_locs.m2 * productos.precio) as Ventas").joins("JOIN obras on empleados.id = obras.empleado_id join localidads on localidads.obra_id = obras.id join prod_locs on prod_locs.localidad_id = localidads.id join productos on productos.id = prod_locs.producto_id").group("empleados.nombre").order("Ventas desc")
+    if  params['start_date'] and params['start_date']['start_date(1i)'].present? and params['start_date']['start_date(2i)'].present? and params['start_date']['start_date(3i)'].present?
+      start_date = Date.new(params['start_date']['start_date(1i)'].to_i, params['start_date']['start_date(2i)'].to_i, params['start_date']['start_date(3i)'].to_i)
+    end
+    if  params['end_date'] and params['end_date']['end_date(1i)'].present? and params['end_date']['end_date(2i)'].present? and params['end_date']['end_date(3i)'].present?
+      end_date = Date.new(params['end_date']['end_date(1i)'].to_i, params['end_date']['end_date(2i)'].to_i, params['end_date']['end_date(3i)'].to_i)
+    end
+      @empieza = start_date
+      @termina = end_date
+      @total = Empleado.select("empleados.nombre, sum(prod_locs.m2 * productos.precio) as Ventas").joins("JOIN obras on empleados.id = obras.empleado_id join localidads on localidads.obra_id = obras.id join prod_locs on prod_locs.localidad_id = localidads.id join productos on productos.id = prod_locs.producto_id").where("obras.inicio between ? and ?", start_date, end_date).group("empleados.nombre").order("Ventas desc")
     
   end
 
