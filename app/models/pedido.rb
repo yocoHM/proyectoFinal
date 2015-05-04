@@ -4,6 +4,8 @@ class Pedido < ActiveRecord::Base
 	has_many :localidads, :through => :pedido_locs
 
 	#validaciones
-	validates :m2, presence: true
+	VALID_NUMBER_REGEX = /(^\d*\.?\d*[0-9]+\d*$)|(^[0-9]+\d*\.\d*$)/
+	validates_numericality_of :m2
+	validates :m2, presence: true, format: { with: VALID_NUMBER_REGEX}
 	validates :orden, presence: true
 end
